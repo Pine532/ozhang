@@ -12,9 +12,26 @@ using namespace std;
 
 
 struct student{
-    string name;
+    string fname;
+    string lname;
     int grade;
+    string lgrade;
 };
+void calculateGrade(vector<student> p){
+  for(int i = 0; i< p.size(); i++){
+    if(p[i].grade >= 90){
+      p[i].lgrade = "A";
+    }else if(p[i].grade >= 80 && p[i].grade < 90){
+      p[i].lgrade = "B";
+    }else if(p[i].grade >= 70 && p[i].grade < 80){
+      p[i].lgrade = "C";
+    }else if(p[i].grade >= 60 && p[i].grade < 70){
+      p[i].lgrade = "D";
+    }else{
+      p[i].lgrade = "F";
+    }
+  }
+}
 /*
  *  * Split function I found at https://stackoverflow.com/questions/289347/using-strtok-with-a-stdstring
  *   */
@@ -56,7 +73,6 @@ return students;
 
 int main(int argc, char *argv[])
 {
-
     string filename(argv[1]);
     ifstream input(filename);
 
@@ -65,31 +81,23 @@ int main(int argc, char *argv[])
              << filename << "'" << endl;
         return EXIT_FAILURE;
     }
-    vector<string> student = getData(filename);
-    for( int i = 0; i < student.size();i++){
-      cout<<student[i]<<endl;
+    vector<string> tokens;
+    vector<string> studentss = getData(filename);
+    vector<student> students;
+    for( int i = 0; i < studentss.size();i++){
+      split(studentss[i], " ", tokens);   
     }
-
-
-
-
-
-
-
-
-    
-
-    
-    
-    
-    
-
-
- 
+    for(int i = 0; i<tokens.size(); i+= 3){
+      student x;
+      x.fname = tokens[i];
+      x.lname = tokens[i+1];
+      x.grade = stoi(tokens[i+2]); 
+      students.push_back(x);
+    }
+    calculateGrade(students);
     
     cout << endl;
     input.close();
 
     return EXIT_SUCCESS;
-
 }
