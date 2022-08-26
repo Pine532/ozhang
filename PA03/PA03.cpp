@@ -2,12 +2,6 @@
 #include <fstream>
 #include <vector>
 #include <string>
-
-using std::cout; using std::cerr;
-using std::cin;
-using std::endl; using std::string;
-using std::ifstream; using std::vector;
-
 using namespace std;
 
 
