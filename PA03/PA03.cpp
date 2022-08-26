@@ -3,8 +3,6 @@
 #include <vector>
 #include <string>
 using namespace std;
-
-
 struct student{
     string fname;
     string lname;
@@ -35,9 +33,6 @@ int highestScore(vector<student> l){
   }
   return highest;
 }
-/*
- *  * Split function I found at https://stackoverflow.com/questions/289347/using-strtok-with-a-stdstring
- *   */
 void split(const string& str, const string& delim, vector<string>& parts) {
   size_t start, end = 0;
   while (end < str.size()) {
@@ -107,11 +102,8 @@ int main(int argc, char *argv[])
       students.push_back(x);
     }
     calculateGrade(students);
-
     writeData(myFile, students);
     cout<<highestScore(students);
-    
     input.close();
-
     return EXIT_SUCCESS;
 }
