@@ -17,7 +17,7 @@ struct student{
     int grade;
     string lgrade;
 };
-void calculateGrade(vector<student> p){
+void calculateGrade(vector<student> &p){
   for(int i = 0; i< p.size(); i++){
     if(p[i].grade >= 90){
       p[i].lgrade = "A";
@@ -31,6 +31,15 @@ void calculateGrade(vector<student> p){
       p[i].lgrade = "F";
     }
   }
+}
+int highestScore(vector<student> l){
+  int highest = 0;
+  for(int i = 0; i< l.size(); i++){
+    if(l[i].grade>highest){
+      highest = l[i].grade;
+    }
+  }
+  return highest;
 }
 /*
  *  * Split function I found at https://stackoverflow.com/questions/289347/using-strtok-with-a-stdstring
@@ -70,12 +79,21 @@ vector<string> getData(string input_file){
 }
 return students;
 }
+ofstream writeData(string output_file, vector<student> w){
+  ofstream output(output_file);
+  for(int i = 0; i < w.size(); i++){
+    output<<w[i].fname<<" "<<w[i].lname<<" "<<w[i].grade<<" "<<w[i].lgrade<<endl;
+  }
+  output.close();
+  return output;
+}
 
 int main(int argc, char *argv[])
 {
     string filename(argv[1]);
     ifstream input(filename);
-
+    string myFile(argv[2]);
+  
     if (!input.is_open()) {
         cerr << "Could not open the file"
              << filename << "'" << endl;
@@ -95,8 +113,10 @@ int main(int argc, char *argv[])
       students.push_back(x);
     }
     calculateGrade(students);
+
+    writeData(myFile, students);
+    cout<<highestScore(students);
     
-    cout << endl;
     input.close();
 
     return EXIT_SUCCESS;

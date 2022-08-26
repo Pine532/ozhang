@@ -102,3 +102,10 @@ make
 ./PA03 data.txt
 make
 ./PA03 data.txt
+cd PA03
+cd ..
+cd PA03
+make
+./PA03
+./PA03 git gud
+./PA03 data.txt
