@@ -109,3 +109,33 @@ make
 ./PA03
 ./PA03 git gud
 ./PA03 data.txt
+cd PA03
+./PA03 data.txt output.txt
+make
+./PA03 data.txt output.txt
+make
+./PA03 data.txt output.txt
+make
+./PA03 data.txt output.txt
+make
+./PA03 data.txt output.txt
+zip PA03.zip PA03.cpp Makefile
+make
+./PA03 data.txt output.txt
+make
+./PA03 data.txt output.txt
+make
+./PA03 data.txt output.txt
+zip PA03.zip PA03.cpp Makefile
+make
+./PA03 data.txt output.txt
+make
+./PA03 data.txt output.txt
+cd PA03
+make
+make
+zip PA03.zip PA03.cpp Makefile
+./PA03 data.txt output.txt
+./PA03 data.txt output.txt
+make
+zip PA03.zip PA03.cpp Makefile

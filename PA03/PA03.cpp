@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-using namespace std;
+using namespace std;  
 struct student{
     string fname;
     string lname;
@@ -68,13 +68,13 @@ vector<string> getData(string input_file){
 }
 return students;
 }
-ofstream writeData(string output_file, vector<student> w){
+void writeData(string output_file, vector<student> w){
   ofstream output(output_file);
   for(int i = 0; i < w.size(); i++){
     output<<w[i].fname<<" "<<w[i].lname<<" "<<w[i].grade<<" "<<w[i].lgrade<<endl;
   }
   output.close();
-  return output;
+  
 }
 
 int main(int argc, char *argv[])
