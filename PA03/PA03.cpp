@@ -64,9 +64,9 @@ vector<string> getData(string input_file){
         students.push_back(line);
         if (file.eof()) {
             break;
+   } 
    }
-}
-return students;
+  return students;
 }
 void writeData(string output_file, vector<student> w){
   ofstream output(output_file);
