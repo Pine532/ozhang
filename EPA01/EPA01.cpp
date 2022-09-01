@@ -3,6 +3,15 @@
 #include <vector>
 #include <string>
 using namespace std; 
+struct person{
+  string fname;
+  string lname;
+  int age;
+  string ighandle;
+  string pnum;
+  string twitter;
+  string email;
+};
 /*
  *  * Split function I found at https://stackoverflow.com/questions/289347/using-strtok-with-a-stdstring
  *   */
@@ -31,41 +40,30 @@ void add(){
 void find(){
 
 }
-
-int main(int argc, char *argv[]){
-    string filename(argv[1]);
-    ifstream input(filename);
+string getData(string file){
+ ifstream input(file);
   
     if (!input.is_open()) {
         cerr << "Could not open the file"
-             << filename << "'" << endl;
-        return EXIT_FAILURE;
+             << file << "'" << endl;
+        exit(1);
     }
+  string line;
+  getline (input, line);
+  string all = line;
+  return all;
 
-    if(argv[1] == "find"){
-        string filename(argv[2]);
-        ifstream input(filename);
-  
-        if (!input.is_open()) {
-            cerr << "Could not open the file"
-                 << filename << "'" << endl;
-             return EXIT_FAILURE;
-        }
-        string line;
-        getline (input, line);
-        string all = line;
-        
+}
 
+int main(int argc, char *argv[]){
+    string filename(argv[2]);
+    string choice = argv[1];
+
+    if(choice == "find"){
+      string all = getData(filename);
+      cout<<all;
     }
-    if(argv[1] == "add"){
-        string filename(argv[2]);
-        ifstream input(filename);
-  
-        if (!input.is_open()) {
-            cerr << "Could not open the file"
-                 << filename << "'" << endl;
-             return EXIT_FAILURE;
+    if(choice == "add"){
         }
     }
     
-}
