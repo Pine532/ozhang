@@ -14,4 +14,9 @@ int main(int argc, char *argv[]){
     cout<<foo<< "-" << bar << " = " << foo-bar<<endl;
     cout<<foo<< "*" << bar << " = " << foo*bar<<endl;
     cout<<foo<< "/" << bar << " = " << foo/bar<<endl;
+    if(foo==bar){
+    cout<<"true"<<endl;
+    }else{
+        cout<<"false"<<endl;
+    }
 }

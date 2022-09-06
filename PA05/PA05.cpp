@@ -2,6 +2,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <image.h>
+
 using namespace std; 
 
 /*
@@ -24,7 +26,7 @@ void split(const string& str, const string& delim, vector<string>& parts) {
   }
 }
 
-string getData(string file){
+vector<string> getData(string file){
  ifstream input(file);
   
     if (!input.is_open()) {
@@ -32,22 +34,30 @@ string getData(string file){
              << file << "'" << endl;
         exit(1);
     }
-  string line;
-  getline (input, line);
-  string all = line;
-  return all;
+    vector<string> image;
+    string line;
+    while (true) {
+        getline (input, line);
+        image.push_back(line);
+        if (input.eof()) {
+            break;
+   } 
+   }
 
+    vector<string> splitImage;
+    for(int i = 0; i<image.size(); i++){
+      split(image[i], " \t\n\r", splitImage); 
+    }
+   return splitImage;
 }
 
 int main(int argc, char *argv[]){
-    string filename(argv[2]);
-    string choice = argv[1];
+    string filename(argv[1]);
 
-    if(choice == "find"){
-      string all = getData(filename);
-      cout<<all;
+    vector<string> splitImage = getData(filename);   
+   
+    for(int i = 0; i<splitImage.size(); i++){
+      cout<<splitImage[i];
     }
-    if(choice == "add"){
-        }
-    }
+  }
     

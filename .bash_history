@@ -147,3 +147,25 @@ make~~
 ./PA03 data.txt output.txt
 cd PA03
 ./PA03 data.txt output.txt
+cd PA04
+make
+./main
+./main,cpp
+./PA04
+make
+make
+./PA04
+make
+./PA04
+make
+./PA04
+make
+./PA04
+make
+./PA04
+zip PA04.zip main.cpp Makefie fraction.h fraction.cpp
+zip PA04.zip main.cpp Makefile fraction.h fraction.cpp
+cd PA04
+zip PA04.zip main.cpp Makefile fraction.h fraction.cpp
+back
+exit
