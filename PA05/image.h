@@ -1,7 +1,7 @@
 using namespace std; 
-class image{
+class Image{
     public:
-        image(string header, int height, int width, int pixels);
+        Image(string header, int height, int width, int pixels);
         string getHeader() const;
         int getWidth() const;
         int getHeight() const;

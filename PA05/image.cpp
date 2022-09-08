@@ -1,24 +1,24 @@
 #include <iostream>
 #include <string>
-#include<image.h>
+#include<Image.h>
 
 using namespace std;
 
-image :: image(string h, int hei, int w, int p){
+Image :: Image(string h, int hei, int w, int p){
     header = h;
     height = hei;
     width = w;
     pixels = p;
 }
-string image :: getHeader() const{
+string Image :: getHeader() const{
     return header;
 }
-int image :: getHeight() const{
+int Image :: getHeight() const{
     return height;
 }
-int image :: getWidth() const{
+int Image :: getWidth() const{
     return width;
 }
-int image :: getPixels() const{
+int Image :: getPixels() const{
     return pixels;
 }

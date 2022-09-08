@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <image.h>
+#include <Image.h>
 
 using namespace std; 
 
@@ -56,12 +56,9 @@ int main(int argc, char *argv[]){
 
     vector<string> splitImage = getData(filename);   
    
-    for(int i = 0; i<splitImage.size(); i++){
-      cout<<splitImage[i];
-    }
-    image foo(splitImage[0], stoi(splitImage[2]), stoi(splitImage[1]), stoi(splitImage[3]));
+    Image foo(splitImage[0], stoi(splitImage[2]), stoi(splitImage[1]), stoi(splitImage[3]));
     if(!(foo.getHeader()=="P2")){
-      cerr << "nah fam"
+      cerr << "nah fam "
              << filename << "'" << endl;
         exit(1);
     }
