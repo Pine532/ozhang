@@ -169,3 +169,20 @@ cd PA04
 zip PA04.zip main.cpp Makefile fraction.h fraction.cpp
 back
 exit
+cd PA05
+make
+./PA05
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+clear; make
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma

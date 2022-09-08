@@ -59,5 +59,12 @@ int main(int argc, char *argv[]){
     for(int i = 0; i<splitImage.size(); i++){
       cout<<splitImage[i];
     }
+    image foo(splitImage[0], stoi(splitImage[2]), stoi(splitImage[1]), stoi(splitImage[3]));
+    if(!(foo.getHeader()=="P2")){
+      cerr << "nah fam"
+             << filename << "'" << endl;
+        exit(1);
+    }
+
   }
     
