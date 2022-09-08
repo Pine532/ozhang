@@ -36,6 +36,12 @@ vector<string> getData(string file){
     }
     vector<string> image;
     string line;
+    getline(input, line);
+      if(!(line=="P2")){
+      cerr << "nah fam " << file<< "'" << endl;
+        exit(1);
+    }
+    image.push_back(line);
     while (true) {
         getline (input, line);
         image.push_back(line);
@@ -53,15 +59,14 @@ vector<string> getData(string file){
 
 int main(int argc, char *argv[]){
     string filename(argv[1]);
-
+    
     vector<string> splitImage = getData(filename);   
+
+    for(int i = 0; i<splitImage.size(); i++){
+      cout<<splitImage[i];
+    }
    
     Image foo(splitImage[0], stoi(splitImage[2]), stoi(splitImage[1]), stoi(splitImage[3]));
-    if(!(foo.getHeader()=="P2")){
-      cerr << "nah fam "
-             << filename << "'" << endl;
-        exit(1);
-    }
 
   }
     
