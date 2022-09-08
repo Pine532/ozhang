@@ -6,6 +6,9 @@ class Image{
         int getWidth() const;
         int getHeight() const;
         int getPixels() const;
+        int getSmallest() const;
+        int getLargest() const;
+        double getAverage() const;
 
 
     private:

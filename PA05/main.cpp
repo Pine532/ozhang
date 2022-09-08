@@ -67,6 +67,5 @@ int main(int argc, char *argv[]){
     }
    
     Image foo(splitImage[0], stoi(splitImage[2]), stoi(splitImage[1]), stoi(splitImage[3]));
-
+    cout<<foo.getSmallest(splitImage)<<foo.getAverage(splitImage)<<foo.getLargest(splitImage);
   }
-    
