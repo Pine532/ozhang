@@ -186,3 +186,27 @@ make
 ./PA05 feep.pgma
 make
 ./PA05 feep.pgma
+cd PA05
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+make
+make
+make
+./PA05 feep.pgma
+make
+make
+make
+make

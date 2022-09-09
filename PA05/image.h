@@ -1,4 +1,6 @@
 using namespace std; 
+#include <vector>
+#include <string>
 class Image{
     public:
         Image(string header, int height, int width, int pixels);
@@ -6,9 +8,9 @@ class Image{
         int getWidth() const;
         int getHeight() const;
         int getPixels() const;
-        int getSmallest() const;
-        int getLargest() const;
-        double getAverage() const;
+        int getSmallest(vector<string> values);
+        int getLargest(vector<string> values);
+        double getAverage(vector<string> values);
 
 
     private:

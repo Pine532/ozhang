@@ -1,6 +1,8 @@
 #include <iostream>
+#include <fstream>
+#include <vector>
 #include <string>
-#include<Image.h>
+#include <Image.h>
 
 using namespace std;
 
@@ -23,18 +25,20 @@ int Image :: getPixels() const{
     return pixels;
 }
 double Image :: getAverage(vector<string> values){
-    int total;
-    int count;
-    for(int i = 4; i < values.size(); i+=){
+    double total;
+    double count;
+    double average;
+    for(int i = 4; i < values.size(); i++){
         total += stoi(values[i]);
         count++;
     }
-    return total/count;
+    average = total/count;
+    return average;
 }
 int Image :: getSmallest(vector<string> values){
     int lowest = stoi(values[4]);
-    for(int i = 4; i<values.size(); i++){
-        if(stoi(values[i]<lowest)){
+    for(int i = 5; i<values.size(); i++){
+        if(stoi(values[i]) < lowest){
             lowest = stoi(values[i]);
         }
     }
@@ -42,7 +46,7 @@ int Image :: getSmallest(vector<string> values){
 }
 int Image :: getLargest(vector<string> values){
     int largest = stoi(values[4]);
-    for(int i = 0; i<values.size(); i++){
+    for(int i = 5; i<values.size(); i++){
         if(stoi(values[i])>largest){
             largest = stoi(values[i]);
         }
