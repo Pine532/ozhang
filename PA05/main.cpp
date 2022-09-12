@@ -60,9 +60,20 @@ vector<string> getData(string file){
 int main(int argc, char *argv[]){
     string filename(argv[1]);
     
-    vector<string> splitImage = getData(filename);      
+    vector<string> splitImage = getData(filename);  
+
+        
     
     Image foo(splitImage[0], stoi(splitImage[2]), stoi(splitImage[1]), stoi(splitImage[3]));
+
+    if(!(foo.getHeight()*foo.getWidth()) == (splitImage.size()-4)){
+      exit(1);
+    }
+    for(int i = 0; i < splitImage.size(); i++){
+      if(stoi(splitImage[i]) > foo.getPixel()){
+        exit(1);
+      }
+    }
 
     cout<<foo.getSmallest(splitImage)<< " "<<foo.getAverage(splitImage)<< " " <<foo.getLargest(splitImage);
   }

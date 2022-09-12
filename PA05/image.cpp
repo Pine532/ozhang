@@ -10,7 +10,7 @@ Image :: Image(string h, int hei, int w, int p){
     header = h;
     height = hei;
     width = w;
-    pixels = p;
+    pixel = p;
 }
 string Image :: getHeader() const{
     return header;
@@ -21,8 +21,8 @@ int Image :: getHeight() const{
 int Image :: getWidth() const{
     return width;
 }
-int Image :: getPixels() const{
-    return pixels;
+int Image :: getPixel() const{
+    return pixel;
 }
 double Image :: getAverage(vector<string> values){
     double total;

@@ -7,7 +7,7 @@ class Image{
         string getHeader() const;
         int getWidth() const;
         int getHeight() const;
-        int getPixels() const;
+        int getPixel() const;
         int getSmallest(vector<string> values);
         int getLargest(vector<string> values);
         double getAverage(vector<string> values);

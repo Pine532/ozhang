@@ -210,3 +210,20 @@ make
 make
 make
 make
+cd PA05
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+make
+./PA05 feep.pgma
+zip PA05.zip main.cpp Makefile Image.h Image.cpp
+./PA05 feep.pgma
+./PA05 waa.pgm
+./PA05 waa.pgm
+cd PA05
+./PA05
+./PA05 feep.pgma
+./PA05 waa.pgm
