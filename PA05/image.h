@@ -3,7 +3,7 @@ using namespace std;
 #include <string>
 class Image{
     public:
-        Image(string header, int height, int width, int pixels);
+        Image(string header, int height, int width, int pixel);
         string getHeader() const;
         int getWidth() const;
         int getHeight() const;
@@ -17,5 +17,5 @@ class Image{
         string header;
         int height;
         int width;
-        int pixels;    
+        int pixel;    
 };
