@@ -227,3 +227,9 @@ cd PA05
 ./PA05
 ./PA05 feep.pgma
 ./PA05 waa.pgm
+cd PA05
+zip PA05.zip main.cpp Makefile Image.h Image.cpp
+./PA05 waa.pgm
+make
+make
+make

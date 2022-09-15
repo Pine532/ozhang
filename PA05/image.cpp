@@ -46,7 +46,7 @@ double Image :: getAverage(vector<string> values){
 }
 int Image :: getSmallest(vector<string> values){
     int lowest = stoi(values[4]);
-    for(int i = 5; i<values.size(); i++){
+    for(int i = 5; i < values.size(); i++){
         if(stoi(values[i]) < lowest){
             lowest = stoi(values[i]);
         }

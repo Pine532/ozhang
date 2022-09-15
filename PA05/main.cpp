@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <Image.h>
+#include <stdexcept>
 
 using namespace std; 
 
@@ -81,12 +82,15 @@ int main(int argc, char *argv[]){
       exit(1);
     }
   
-    if(!(foo.getHeight()*foo.getWidth()) == (splitImage.size()-4)){
+    if(!(((foo.getHeight()*foo.getWidth())) == (splitImage.size()-4))){
       exit(1);
     }
     
     for(int i = 4; i < splitImage.size(); i++){
       if(stoi(splitImage[i]) > foo.getPixel()){
+        exit(1);  
+      }
+      if(stoi(splitImage[i]) < 0){
         exit(1);
       }
     }
