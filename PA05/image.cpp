@@ -16,12 +16,21 @@ string Image :: getHeader() const{
     return header;
 }
 int Image :: getHeight() const{
+    if(height<0){
+        exit(1);
+    }
     return height;
 }
 int Image :: getWidth() const{
+    if(width<0){
+        exit(1);
+    }
     return width;
 }
 int Image :: getPixel() const{
+    if(pixel<0){
+        exit(1);
+    }
     return pixel;
 }
 double Image :: getAverage(vector<string> values){
