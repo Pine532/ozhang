@@ -53,6 +53,13 @@ vector<string> getData(string file){
     vector<string> splitImage;
     for(int i = 0; i<image.size(); i++){
       split(image[i], " \t\n\r", splitImage); 
+      
+    }
+    for(int i = 0; i < splitImage.size(); i++){
+      if (splitImage[i].substr(0,1) == "#"){
+        splitImage.erase(splitImage.begin() + i);
+        i--;
+      }
     }
    return splitImage;
 }
