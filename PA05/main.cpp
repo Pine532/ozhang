@@ -6,6 +6,7 @@
 #include <stdexcept>
 
 using namespace std; 
+const bool debug = false;
 
 /*
  *  * Split function I found at https://stackoverflow.com/questions/289347/using-strtok-with-a-stdstring
@@ -55,12 +56,6 @@ vector<string> getData(string file){
       split(image[i], " \t\n\r", splitImage); 
       
     }
-    for(int i = 0; i < splitImage.size(); i++){
-      if (splitImage[i].substr(0,1) == "#"){
-        splitImage.erase(splitImage.begin() + i);
-        i--;
-      }
-    }
    return splitImage;
 }
 
@@ -79,6 +74,11 @@ int main(int argc, char *argv[]){
     }
     try{
     for(int i = 4; i<splitImage.size(); i++){
+      if(debug){cout<< "Current token: "<<splitImage[i]<<endl; }
+      if(splitImage[i].find("#") != string::npos){
+        if(debug){cout<< "Found a comment... skipped"<<endl; }
+        continue;
+      }
       stoi(splitImage[i]);
     }
     }catch(std::invalid_argument){
@@ -95,9 +95,15 @@ int main(int argc, char *argv[]){
     
     for(int i = 4; i < splitImage.size(); i++){
       if(stoi(splitImage[i]) > foo.getPixel()){
+        if(splitImage[i].find("#") != string::npos){
+        continue;
+      }
         exit(1);  
       }
       if(stoi(splitImage[i]) < 0){
+        if(splitImage[i].find("#") != string::npos){
+        continue;
+      }
         exit(1);
       }
     }

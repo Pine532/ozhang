@@ -38,6 +38,9 @@ double Image :: getAverage(vector<string> values){
     double count;
     double average;
     for(int i = 4; i < values.size(); i++){
+        if(values[i].find("#") != string::npos){
+        continue;
+      }
         total += stoi(values[i]);
         count++;
     }
@@ -47,6 +50,9 @@ double Image :: getAverage(vector<string> values){
 int Image :: getSmallest(vector<string> values){
     int lowest = stoi(values[4]);
     for(int i = 5; i < values.size(); i++){
+        if(values[i].find("#") != string::npos){
+        continue;
+      }
         if(stoi(values[i]) < lowest){
             lowest = stoi(values[i]);
         }
@@ -56,6 +62,9 @@ int Image :: getSmallest(vector<string> values){
 int Image :: getLargest(vector<string> values){
     int largest = stoi(values[4]);
     for(int i = 5; i<values.size(); i++){
+        if(values[i].find("#") != string::npos){
+        continue;
+      }
         if(stoi(values[i])>largest){
             largest = stoi(values[i]);
         }
