@@ -11,6 +11,7 @@ class Image{
         int getSmallest(vector<string> values);
         int getLargest(vector<string> values);
         double getAverage(vector<string> values);
+        vector<string> removeComment(vector<string> values);
 
 
     private:

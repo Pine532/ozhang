@@ -39,12 +39,18 @@ vector<string> getData(string file){
     vector<string> image;
     string line;
     getline(input, line);
+    if(line.find(" ") != string::npos){
+          line.erase(line.find(" "), line.length());
+        }
       if(!(line=="P2")){
         exit(1);
     }
     image.push_back(line);
     while (true) {
         getline (input, line);
+        if(line.find("#") != string::npos){
+          line.erase(line.find("#"), line.length());
+        }
         image.push_back(line);
         if (input.eof()) {
             break;
@@ -54,7 +60,6 @@ vector<string> getData(string file){
     vector<string> splitImage;
     for(int i = 0; i<image.size(); i++){
       split(image[i], " \t\n\r", splitImage); 
-      
     }
    return splitImage;
 }
@@ -62,10 +67,11 @@ vector<string> getData(string file){
 int main(int argc, char *argv[]){
     string filename(argv[1]);
     
-    vector<string> splitImage = getData(filename);  
+    vector<string> splitImage1 = getData(filename);  
     
     
-    Image foo(splitImage[0], stoi(splitImage[2]), stoi(splitImage[1]), stoi(splitImage[3]));
+    Image foo(splitImage1[0], stoi(splitImage1[2]), stoi(splitImage1[1]), stoi(splitImage1[3]));
+    vector<string> splitImage = foo.removeComment(splitImage1);
     if(foo.getPixel()>255){
       exit(1);
     }
@@ -74,11 +80,6 @@ int main(int argc, char *argv[]){
     }
     try{
     for(int i = 4; i<splitImage.size(); i++){
-      if(debug){cout<< "Current token: "<<splitImage[i]<<endl; }
-      if(splitImage[i].find("#") != string::npos){
-        if(debug){cout<< "Found a comment... skipped"<<endl; }
-        continue;
-      }
       stoi(splitImage[i]);
     }
     }catch(std::invalid_argument){
@@ -95,15 +96,9 @@ int main(int argc, char *argv[]){
     
     for(int i = 4; i < splitImage.size(); i++){
       if(stoi(splitImage[i]) > foo.getPixel()){
-        if(splitImage[i].find("#") != string::npos){
-        continue;
-      }
         exit(1);  
       }
       if(stoi(splitImage[i]) < 0){
-        if(splitImage[i].find("#") != string::npos){
-        continue;
-      }
         exit(1);
       }
     }
