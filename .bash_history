@@ -250,3 +250,27 @@ make
 ./PA05 feep.pgma 
 make
 ./PA05 feep.pgma 
+cd PA06
+make
+make
+./PA06
+wget [200~https://micds.menghini.org/~aticp/downloads/PA06/HelloWorld.java~
+wget https://micds.menghini.org/~aticp/downloads/PA06/HelloWorld.java
+make
+./PA06 HelloWorld
+exit
+cd PA06
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+./PA06 HelloWorld.java
+./PA06 HelloWorld.java
+./PA06 HelloWorld.java
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java

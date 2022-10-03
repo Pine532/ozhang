@@ -32,6 +32,6 @@ int main(int argc, char *argv[]){
     vector<string> split1;
     split(hi, " ", split1);  
     for(int i = 0; i<split1.size(); i++){
-        cout<<stod(split1[i])*2.54<<endl;
+        cout<<stoi(split1[i])*2.54<<endl;
     }
 }

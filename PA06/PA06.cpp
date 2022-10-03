@@ -6,6 +6,8 @@
 #include <stack>
 using namespace std; 
 
+bool debug=false;
+
 /*
  *  * Split function I found at https://stackoverflow.com/questions/289347/using-strtok-with-a-stdstring
  *   */
@@ -70,12 +72,26 @@ int main(int argc, char *argv[]){
     closers.push_back("}");
     closers.push_back("]");
 
-    for(int i = 0; i< valid.size(); i++){
-        if(valid.substr(i,i+1)==starters[0] || valid.substr(i,i+1)==starters[1] || valid.substr(i,i+1)==starters[2]){
+    for(int i = 0; i < valid.size()-1; i++){
+      if(debug){cout<<"loop has run"<<i<< "times"<<endl;}
+        if(valid.substr(i,1)==starters[0] || valid.substr(i,1)==starters[1] || valid.substr(i,1)==starters[2]){
+            if(debug){cout<<"Pushed: "<<valid.substr(i,i+1)<<endl;}
             mystack.push(valid.substr(i,i+1));        
         }
-        
-    }
+        else if(valid.substr(i,1)==closers[0] || valid.substr(i,1)==closers[1] || valid.substr(i,1)==closers[2]){
+          if(mystack.size() != 0){
 
-        
-  }
+            mystack.pop();      
+          }else{
+            cerr<<"Invalid";
+          }
+        }
+    }
+    
+    if(mystack.size() != 0){
+     cerr<<"Invalid";
+    }
+    else if(mystack.size() == 0){
+      cout<<"valid";
+    }
+}
