@@ -39,8 +39,11 @@ string getData(string file){
     vector<string> image;
 
     string line;
-    while (true) {
+ while (true) {
         getline (input, line);
+        if(line.find("#") != string::npos){
+          line.erase(line.find("#"), line.length());
+        }
         image.push_back(line);
         if (input.eof()) {
             break;
@@ -72,26 +75,27 @@ int main(int argc, char *argv[]){
     closers.push_back("}");
     closers.push_back("]");
 
-    for(int i = 0; i < valid.size()-1; i++){
+    for(int i = 0; i < valid.size(); i++){
       if(debug){cout<<"loop has run"<<i<< "times"<<endl;}
         if(valid.substr(i,1)==starters[0] || valid.substr(i,1)==starters[1] || valid.substr(i,1)==starters[2]){
-            if(debug){cout<<"Pushed: "<<valid.substr(i,i+1)<<endl;}
-            mystack.push(valid.substr(i,i+1));        
+            if(debug){cout<<"Pushed: "<<valid.substr(i,1)<<endl;}
+            mystack.push(valid.substr(i,1));        
         }
         else if(valid.substr(i,1)==closers[0] || valid.substr(i,1)==closers[1] || valid.substr(i,1)==closers[2]){
           if(mystack.size() != 0){
 
             mystack.pop();      
           }else{
-            cerr<<"Invalid";
+            cerr<<"invalid"<<endl;
+            exit(1);
           }
         }
-    }
+        }
     
     if(mystack.size() != 0){
-     cerr<<"Invalid";
+     cerr<<"invalid"<<endl;
     }
     else if(mystack.size() == 0){
-      cout<<"valid";
+      cout<<"valid"<<endl;
     }
 }
