@@ -274,3 +274,56 @@ make
 ./PA06 HelloWorld.java
 make
 ./PA06 HelloWorld.java
+cd PA06
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+make
+./PA06 HelloWorld.java
+zip PA06.zip Makefile PA06.cpp
+make
+make
+./PA06 HelloWorld.java
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+./PA06 HelloWorld.java
+make
+make
+./PA06 HelloWorld.java
+zip PA06.zip Makefile PA06.cpp
+zip PA06.zip Makefile PA06.cpp
+zip PA06.zip Makefile PA06.cpp
+make
+zip PA06.zip Makefile PA06.cpp
+zip PA06.zip Makefile PA06.cpp
+zip PA06.zip Makefile PA06.cpp
+zip PA06.zip Makefile PA06.cpp
+zip PA06.zip Makefile PA06.cpp
+zip PA06.zip Makefile PA06.cpp
+./PA06 HelloWorld.java
+./PA06 HelloWorld.java
+CD PA06
+cd PA06
