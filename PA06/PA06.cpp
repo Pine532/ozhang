@@ -113,18 +113,42 @@ int main(int argc, char *argv[])
     }
     if (valid.substr(i, 1) == starters[0] || valid.substr(i, 1) == starters[1] || valid.substr(i, 1) == starters[2])
     {
-      if (debug)
-      {
-        cout << "Pushed: " << valid.substr(i, 1) << endl;
-      }
+      if (debug){cout << "Pushed: " << valid.substr(i, 1) << endl;}
       mystack.push(valid.substr(i, 1));
     }
-    else if (valid.substr(i, 1) == closers[0] || valid.substr(i, 1) == closers[1] || valid.substr(i, 1) == closers[2])
+    else if (valid.substr(i, 1) == closers[0])
     {
-      if (mystack.size() != 0)
+      if (mystack.size() != 0){
+        if(mystack.top() == starters[0]){
+          mystack.pop();
+        }
+      }
+      else
       {
-
-        mystack.pop();
+        cerr << "invalid" << endl;
+        exit(1);
+      }
+    }
+    else if (valid.substr(i, 1) == closers[1])
+    {
+      if (mystack.size() != 0){
+        if(mystack.top() == starters[0]){
+          mystack.pop();
+        }
+      }
+        
+      else
+      {
+        cerr << "invalid" << endl;
+        exit(1);
+      }
+    }
+    else if (valid.substr(i, 1) == closers[2])
+    {
+      if (mystack.size() != 0){
+        if(mystack.top() == starters[0]){
+          mystack.pop();
+        }
       }
       else
       {
@@ -133,13 +157,6 @@ int main(int argc, char *argv[])
       }
     }
   }
-
-  if (mystack.size() != 0)
-  {
-    cerr << "invalid" << endl;
-  }
-  else if (mystack.size() == 0)
-  {
-    cout << "valid" << endl;
-  }
+  if (mystack.size() != 0){cerr << "invalid" << endl;}
+  else if (mystack.size() == 0){cout << "valid" << endl;}
 }
