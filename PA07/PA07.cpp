@@ -35,10 +35,12 @@ void split(const string &str, const string &delim, vector<string> &parts)
 void writeData(string output_file, vector<person> w)
 {
     ofstream output(output_file);
+    output<<"<html>"<<endl<<"<body>"<<endl<<"<table>"<<"<tbody>"<<endl;
     for (int i = 0; i < w.size(); i++)
     {
-        output << w[i].pos << " " << w[i].fname << " " << w[i].lname <<endl;
+        output <<"<tr>"<<endl<<"<td>"<< w[i].pos << "</td>"<<endl<< "<td>"<< w[i].fname << " " << w[i].lname <<"</td>"<<endl<<"</tr>"<<endl;
     }
+    output<<"</tbody>"<<endl<<"</table>"<<endl<<"</body>"<<"</html>"<<endl;
     output.close();
 }
 
@@ -72,6 +74,7 @@ int main(int argc, char *argv[])
         }if(c == 3){
             people.clear();
         }if(c == 4){
+            cout << "queue created"<<endl;
             break;
         }
     }
