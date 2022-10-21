@@ -327,3 +327,14 @@ zip PA06.zip Makefile PA06.cpp
 ./PA06 HelloWorld.java
 CD PA06
 cd PA06
+cd PA06
+make
+zip PA06.zip Makefile PA06.cpp
+make
+zip PA06.zip Makefile PA06.cpp
+make
+zip PA06.zip Makefile PA06.cpp
+make
+./PA06 HelloWorld.java
+cd PA06
+./PA06 HelloWorld.java

@@ -107,10 +107,6 @@ int main(int argc, char *argv[])
 
   for (int i = 0; i < valid.size(); i++)
   {
-    if (debug)
-    {
-      cout << "loop has run" << i << "times" << endl;
-    }
     if (valid.substr(i, 1) == starters[0] || valid.substr(i, 1) == starters[1] || valid.substr(i, 1) == starters[2])
     {
       if (debug){cout << "Pushed: " << valid.substr(i, 1) << endl;}
@@ -118,42 +114,49 @@ int main(int argc, char *argv[])
     }
     else if (valid.substr(i, 1) == closers[0])
     {
-      if (mystack.size() != 0){
-        if(mystack.top() == starters[0]){
-          mystack.pop();
-        }
-      }
-      else
-      {
+      if (mystack.size() == 0){
         cerr << "invalid" << endl;
         exit(1);
+      }
+      else{
+        if(mystack.top() == starters[0]){
+           if (debug){cout << "Popped: " << valid.substr(i, 1) << endl;}
+          mystack.pop();
+        }else{
+          cerr << "invalid" << endl;
+        exit(1);
+        }
       }
     }
-    else if (valid.substr(i, 1) == closers[1])
-    {
-      if (mystack.size() != 0){
-        if(mystack.top() == starters[0]){
-          mystack.pop();
-        }
-      }
-        
-      else
-      {
+    else if (valid.substr(i, 1) == closers[1]){
+      if (mystack.size() == 0){
         cerr << "invalid" << endl;
         exit(1);
+      }
+      else{
+        if(mystack.top() == starters[1]){
+           if (debug){cout << "Popped: " << valid.substr(i, 1) << endl;}
+          mystack.pop();
+        }else{
+          cerr << "invalid" << endl;
+        exit(1);
+        }   
       }
     }
     else if (valid.substr(i, 1) == closers[2])
     {
-      if (mystack.size() != 0){
-        if(mystack.top() == starters[0]){
-          mystack.pop();
-        }
-      }
-      else
-      {
+      if (mystack.size() == 0){
         cerr << "invalid" << endl;
         exit(1);
+      }
+      else{
+        if(mystack.top() == starters[2]){
+           if (debug){cout << "Popped: " << valid.substr(i, 1) << endl;}
+          mystack.pop();
+        }else{
+          cerr << "invalid" << endl;
+        exit(1);
+        }
       }
     }
   }
