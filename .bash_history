@@ -338,3 +338,12 @@ make
 ./PA06 HelloWorld.java
 cd PA06
 ./PA06 HelloWorld.java
+cd PA07
+make
+./PA07 output.html
+make
+./PA07 output.html
+./PA07 output.html
+./PA07 output.html
+cd PA07
+./PA07 test.html
