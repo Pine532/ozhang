@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
             people.push_back(x);
         }
         if(c == 2){
-            people.pop_back();
+            people.erase(people.begin());
         }if(c == 3){
             people.clear();
         }if(c == 4){
