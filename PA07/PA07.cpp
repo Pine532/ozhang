@@ -21,6 +21,15 @@ void writeData(string output_file, vector<person> w)
     output<<"</tbody>"<<endl<<"</table>"<<endl<<"</body>"<<"</html>"<<endl;
     output.close();
 }
+bool checkMail(vector<person> a, person x){
+    for(int k = 0; k<a.size(); k++){
+                if(a[k].mail.compare(x.mail) == 0){
+                    cerr<<"same person cannot be entered twice"<<endl;
+                    return false;
+                }
+            }
+            return true;
+}
 
 int main(int argc, char *argv[])
 {
@@ -44,17 +53,23 @@ int main(int argc, char *argv[])
             cout << "Email:";
             cin >> x.mail;
             x.pos = i;
-            i++;
-            people.push_back(x);
+            if(checkMail(people, x) == true){
+                people.push_back(x);
+                i++;
+            }else{
+                continue;
+            }
+            writeData(myFile, people);
         }
         if(c == 2){
             people.erase(people.begin());
+            writeData(myFile, people);
         }if(c == 3){
             people.clear();
+            writeData(myFile, people);
         }if(c == 4){
             cout << "queue created"<<endl;
             break;
         }
     }
-    writeData(myFile, people);
 }
