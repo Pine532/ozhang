@@ -30,13 +30,18 @@ bool checkMail(vector<person> a, person x){
             }
             return true;
 }
+vector<person> updatePos(vector<person> a){
+    for(int i = 0; i<a.size(); i++){
+        a[i].pos = i;
+    }
+    return a;
+}
 
 int main(int argc, char *argv[])
 {
     string myFile(argv[1]);
     vector<person> people;
     int c;
-    int i = 0;
     while (true){
         cout<<"1) Raise Hand"<<endl;
         cout<<"2) Remove Head"<<endl;
@@ -52,10 +57,9 @@ int main(int argc, char *argv[])
             cin >> x.lname;
             cout << "Email:";
             cin >> x.mail;
-            x.pos = i;
             if(checkMail(people, x) == true){
                 people.push_back(x);
-                i++;
+                people = updatePos(people);
             }else{
                 continue;
             }
@@ -63,6 +67,7 @@ int main(int argc, char *argv[])
         }
         if(c == 2){
             people.erase(people.begin());
+            people = updatePos(people);
             writeData(myFile, people);
         }if(c == 3){
             people.clear();

@@ -347,3 +347,45 @@ make
 ./PA07 output.html
 cd PA07
 ./PA07 test.html
+zip PA07.zip Makefile PA07.cpp
+cd PA07
+zip PA07.zip Makefile PA07.cpp
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+zip PA07.zip Makefile PA07.cpp
+./PA07 test.html
+./PA07 test.html
+./PA07 test.html
+make
+./PA07 test.html
+1
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+make
+./PA07 test.html
+./PA07 test.html
+zip PA07.zip Makefile PA07.cpp
+./PA07 test.html
+./PA07 test.html
