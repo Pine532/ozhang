@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]){
     pointer1 = &y;
     y = 16;
     cout<<"x: "<<x<<"\t pointer 1: "<<*pointer1<< "\t pointer 2: "<<*pointer2<<endl;
-
+/*
     // up until this pointer, you had to define the size of the array before time..
     int arraySize;
     cout<<"enter the size of the array"<<endl;
@@ -52,4 +52,5 @@ int main(int argc, char const *argv[]){
     delete pointer4;
     delete pointer5;//this pointer is already deleted you just double deleted
     return 0;
+*/
 }
