@@ -8,6 +8,7 @@ struct person
     string fname;
     string lname;
     string mail;
+    person *next = NULL;
     int pos;
 };
 void writeData(string output_file, vector<person> w)
@@ -51,6 +52,8 @@ int main(int argc, char *argv[])
         cin>>c;
         if(c == 1){
             person x;
+            person *temp;
+            person *head = NULL;
             cout << "First Name:";
             cin >> x.fname;
             cout << "Last Name:";
@@ -58,6 +61,12 @@ int main(int argc, char *argv[])
             cout << "Email:";
             cin >> x.mail;
             if(checkMail(people, x) == true){
+                if(head == NULL){
+                    people.push_back(x);
+                    head = &x;
+                }
+                for(temp = head; temp->next!=NULL; temp = temp->next);
+                
                 people.push_back(x);
                 people = updatePos(people);
             }else{

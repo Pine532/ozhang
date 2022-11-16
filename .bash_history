@@ -389,3 +389,13 @@ make
 zip PA07.zip Makefile PA07.cpp
 ./PA07 test.html
 ./PA07 test.html
+cd EX03
+make
+./EX03
+./EX03
+make
+./EX03
+make
+./EX03
+make
+./EX03
