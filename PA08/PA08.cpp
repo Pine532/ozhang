@@ -11,23 +11,28 @@ struct person
     person *next = NULL;
     int pos;
 };
-void writeData(string output_file, vector<person> w)
+void writeData(string output_file, person *head)
 {
+    
+    person *something = head;
     ofstream output(output_file);
     output<<"<html>"<<endl<<"<body>"<<endl<<"<table>"<<"<tbody>"<<endl;
-    for (int i = 0; i < w.size(); i++)
+    while(something->next != NULL)
     {
-        output <<"<tr>"<<endl<<"<td>"<< w[i].pos << "</td>"<<endl<< "<td>"<< w[i].fname << " " << w[i].lname <<"</td>"<<endl<<"</tr>"<<endl;
+        output <<"<tr>"<<endl<<"<td>"<< something->pos << "</td>"<<endl<< "<td>"<< something->fname << " " << something->lname <<"</td>"<<endl<<"</tr>"<<endl;
+        something = something-> next;
     }
     output<<"</tbody>"<<endl<<"</table>"<<endl<<"</body>"<<"</html>"<<endl;
     output.close();
 }
-bool checkMail(vector<person> a, person x){
-    for(int k = 0; k<a.size(); k++){
-                if(a[k].mail.compare(x.mail) == 0){
+bool checkMail(person *x, person *last){
+    person *something = x;
+    while(something->next != NULL){
+                if(last->mail.compare(x->mail) == 0){
                     cerr<<"same person cannot be entered twice"<<endl;
                     return false;
                 }
+                something = something->next;
             }
             return true;
 }
@@ -40,6 +45,7 @@ vector<person> updatePos(vector<person> a){
 
 int main(int argc, char *argv[])
 {
+    person *head = NULL;
     string myFile(argv[1]);
     vector<person> people;
     int c;
@@ -51,36 +57,38 @@ int main(int argc, char *argv[])
         cout<<"Choice (enter a number):";
         cin>>c;
         if(c == 1){
-            person x;
-            person *temp;
-            person *head = NULL;
-            cout << "First Name:";
-            cin >> x.fname;
-            cout << "Last Name:";
-            cin >> x.lname;
-            cout << "Email:";
-            cin >> x.mail;
-            if(checkMail(people, x) == true){
-                if(head == NULL){
-                    people.push_back(x);
-                    head = &x;
-                }
-                for(temp = head; temp->next!=NULL; temp = temp->next);
-                
-                people.push_back(x);
-                people = updatePos(people);
+            person *temp = new person;
+            person *something = head;
+            if(head == NULL){
+                head = new person;
+                cout << "First Name:";
+                cin >> head->fname;
+                cout << "Last Name:";
+                cin >> head->lname;
+                cout << "Email:";
+                cin >> head->mail;
+            }else{
+                person *something = head;
+                person *last = new person;
+                cout << "First Name:";
+                cin >> last->fname;
+                cout << "Last Name:";
+                cin >> last->lname;
+                cout << "Email:";
+                cin >> last->mail;
+                if(checkMail(head, last) == true){
+                    while(something->next != NULL){
+                        something = something->next;
+                    }
+                something->next = last;
+
             }else{
                 continue;
             }
-            writeData(myFile, people);
-        }
-        if(c == 2){
-            people.erase(people.begin());
-            people = updatePos(people);
-            writeData(myFile, people);
+                }
+            writeData(myFile, head);
+        }if(c == 2){
         }if(c == 3){
-            people.clear();
-            writeData(myFile, people);
         }if(c == 4){
             cout << "queue created"<<endl;
             break;
