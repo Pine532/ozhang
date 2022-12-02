@@ -399,3 +399,17 @@ make
 ./EX03
 make
 ./EX03
+cd PA08
+make
+./PA08 test.html
+./PA08 test.html
+make
+./PA08 test.html
+make
+./PA08 test.html
+cd PA08
+make
+./PA08 test.html
+a
+make
+./PA08 test.html

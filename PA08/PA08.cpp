@@ -17,10 +17,12 @@ void writeData(string output_file, person *head)
     person *something = head;
     ofstream output(output_file);
     output<<"<html>"<<endl<<"<body>"<<endl<<"<table>"<<"<tbody>"<<endl;
+    int i = 1;
     while(something->next != NULL)
     {
-        output <<"<tr>"<<endl<<"<td>"<< something->pos << "</td>"<<endl<< "<td>"<< something->fname << " " << something->lname <<"</td>"<<endl<<"</tr>"<<endl;
+        output <<"<tr>"<<endl<<"<td>"<< i << "</td>"<<endl<< "<td>"<< something->fname << " " << something->lname <<"</td>"<<endl<<"</tr>"<<endl;
         something = something-> next;
+        i++;
     }
     output<<"</tbody>"<<endl<<"</table>"<<endl<<"</body>"<<"</html>"<<endl;
     output.close();
@@ -60,15 +62,16 @@ int main(int argc, char *argv[])
             person *temp = new person;
             person *something = head;
             if(head == NULL){
-                head = new person;
                 cout << "First Name:";
-                cin >> head->fname;
+                cin >> temp->fname;
                 cout << "Last Name:";
-                cin >> head->lname;
+                cin >> temp->lname;
                 cout << "Email:";
-                cin >> head->mail;
-            }else{
-                person *something = head;
+                cin >> temp->mail;
+                head = temp;
+                writeData(myFile, head);
+            }
+            else{
                 person *last = new person;
                 cout << "First Name:";
                 cin >> last->fname;
@@ -81,11 +84,13 @@ int main(int argc, char *argv[])
                         something = something->next;
                     }
                 something->next = last;
+                writeData(myFile, head);
+                delete last;
 
-            }else{
+                }else{
                 continue;
-            }
                 }
+            }
             writeData(myFile, head);
         }if(c == 2){
         }if(c == 3){
