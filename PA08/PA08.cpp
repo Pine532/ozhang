@@ -11,42 +11,44 @@ struct person
     person *next = NULL;
     int pos;
 };
-void writeData(string output_file, person *head)
-{
-    
+void writeData(string output_file, person *head){    
     person *something = head;
     ofstream output(output_file);
     output<<"<html>"<<endl<<"<body>"<<endl<<"<table>"<<"<tbody>"<<endl;
     int i = 1;
-    while(something->next != NULL)
-    {
+    if(head != NULL){
         output <<"<tr>"<<endl<<"<td>"<< i << "</td>"<<endl<< "<td>"<< something->fname << " " << something->lname <<"</td>"<<endl<<"</tr>"<<endl;
+        i++;
+    }else{
+        return;
+    }
+        while(something->next != NULL){
         something = something-> next;
+        output <<"<tr>"<<endl<<"<td>"<< i << "</td>"<<endl<< "<td>"<< something->fname << " " << something->lname <<"</td>"<<endl<<"</tr>"<<endl;
         i++;
     }
+    
     output<<"</tbody>"<<endl<<"</table>"<<endl<<"</body>"<<"</html>"<<endl;
     output.close();
 }
-bool checkMail(person *x, person *last){
-    person *something = x;
-    while(something->next != NULL){
-                if(last->mail.compare(x->mail) == 0){
+bool checkMail(person *head, person *last){
+    person *something = head;
+    if(head != NULL){
+        if(last->mail.compare(head->mail) == 0){
                     cerr<<"same person cannot be entered twice"<<endl;
                     return false;
                 }
-                something = something->next;
+    }
+    while(something->next != NULL){
+        something = something->next;
+                if(last->mail.compare(something->mail) == 0){
+                    cerr<<"same person cannot be entered twice"<<endl;
+                    return false;
+                }
             }
             return true;
 }
-vector<person> updatePos(vector<person> a){
-    for(int i = 0; i<a.size(); i++){
-        a[i].pos = i;
-    }
-    return a;
-}
-
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
     person *head = NULL;
     string myFile(argv[1]);
     vector<person> people;
@@ -85,15 +87,29 @@ int main(int argc, char *argv[])
                     }
                 something->next = last;
                 writeData(myFile, head);
-                delete last;
-
                 }else{
                 continue;
                 }
             }
             writeData(myFile, head);
         }if(c == 2){
+            person *previous = head;
+            if(head->next != NULL){
+                previous = head;
+                head = head->next;
+                delete(previous);
+                previous = head;
+            }
+            writeData(myFile, head);
         }if(c == 3){
+            person *previous = head;
+            while(head != NULL){
+                previous = head;
+                head = head->next;
+                delete(previous);
+                previous = head;
+            }
+            writeData(myFile, head);
         }if(c == 4){
             cout << "queue created"<<endl;
             break;

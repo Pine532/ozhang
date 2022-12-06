@@ -413,3 +413,5 @@ make
 a
 make
 ./PA08 test.html
+cd PA08
+make
