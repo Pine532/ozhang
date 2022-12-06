@@ -51,7 +51,6 @@ bool checkMail(person *head, person *last){
 int main(int argc, char *argv[]){
     person *head = NULL;
     string myFile(argv[1]);
-    vector<person> people;
     int c;
     while (true){
         cout<<"1) Raise Hand"<<endl;
@@ -61,19 +60,18 @@ int main(int argc, char *argv[]){
         cout<<"Choice (enter a number):";
         cin>>c;
         if(c == 1){
-            person *temp = new person;
-            person *something = head;
             if(head == NULL){
+                person *head = new person;
                 cout << "First Name:";
-                cin >> temp->fname;
+                cin >> head->fname;
                 cout << "Last Name:";
-                cin >> temp->lname;
+                cin >> head->lname;
                 cout << "Email:";
-                cin >> temp->mail;
-                head = temp;
+                cin >> head->mail;
                 writeData(myFile, head);
             }
             else{
+                person *something = head;
                 person *last = new person;
                 cout << "First Name:";
                 cin >> last->fname;
@@ -94,11 +92,14 @@ int main(int argc, char *argv[]){
             writeData(myFile, head);
         }if(c == 2){
             person *previous = head;
-            if(head->next != NULL){
+            if(head != NULL && head->next != NULL){
                 previous = head;
                 head = head->next;
                 delete(previous);
-                previous = head;
+                previous = NULL;
+            }else{
+                delete(previous);
+                head = NULL;
             }
             writeData(myFile, head);
         }if(c == 3){
