@@ -415,3 +415,42 @@ make
 ./PA08 test.html
 cd PA08
 make
+cd PA08
+zip PA08.zip Makefile PA08.cpp
+make
+./PA08 test.html
+./PA08 test.html
+make
+./PA08 test.html
+make
+./PA08 test.html
+1
+./PA08 test.html
+./PA08 test.html
+make
+./PA08 test.html
+make
+./PA08 test.html
+make
+./PA08 test.html
+make
+./PA08 test.html
+./PA08 test.html
+./PA08 test.html
+make
+./PA08 test.html
+zip PA08.zip Makefile PA08.cpp
+./PA08 test.html
+./PA08 test.html
+make
+./PA08 test.html
+zip PA08.zip Makefile PA08.cpp
+./PA08 test.html
+make
+make
+make
+make
+./PA08 test.html
+make
+./PA08 test.html
+gdb
